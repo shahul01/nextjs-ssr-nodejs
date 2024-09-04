@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/shahul01/nextjs-ssr-nodejs-backend#readme",
   "devDependencies": {
+    "@types/express": "^4.17.21",
     "@types/node": "^20.14.2",
     "nodemon": "^3.0.2",
     "ts-loader": "^9.5.1",
@@ -32,5 +33,9 @@
     "typescript": "^5.3.3",
     "webpack": "^5.89.0",
     "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2"
   }
 }
