@@ -1,6 +1,6 @@
 'use client';
 import { useEffect, useState } from "react";
-import { backendUrl } from "./utils/constants";
+import { backendUrl } from "../utils/constants";
 
 
 async function getTodos() {
