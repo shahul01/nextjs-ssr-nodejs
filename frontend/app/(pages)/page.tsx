@@ -10,11 +10,17 @@ async function getTodos() {
   return resTodos;
 };
 
+type Todo= {
+  id: string;
+  title: string;
+};
+
 export default function Home() {
-  const [ todos, setTodos ] = useState([]);
+  const [ todos, setTodos ] = useState<Todo[]>([]);
 
   async function init() {
-    const newTodos = await getTodos();
+    const { todos: newTodos } = await getTodos();
+    if (!newTodos) return;
     setTodos(newTodos);
   };
 
@@ -25,9 +31,17 @@ export default function Home() {
 
   return (
   <main className="app">
-    {
-      JSON.stringify(todos,null, 2)
-    }
+
+    <h2>Todos</h2>
+    <div className="todo-lists">
+      {
+        todos?.map((todo: Todo) => (
+          <div key={todo.id}>
+            {todo.title}
+          </div>
+        ))
+      }
+    </div>
 
   </main>
   );

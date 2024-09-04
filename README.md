@@ -5,6 +5,7 @@
 
 ## Screenshots
 ### Home
+![home.png](/frontend/public/images/screenshots/home.png)
 
 
 <br ><hr >
