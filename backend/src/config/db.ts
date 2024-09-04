@@ -1,13 +1,28 @@
-import { Pool } from 'pg';
-import { drizzle } from 'drizzle-orm/node-postgres';
+import { Sequelize } from 'sequelize';
+import TodoModel from '../models/todo.model';
 import { pgDatabase, pgHost, pgPassword, pgPort, pgUsername } from '../constants';
 
-const postgresConfig = new Pool({
-    user: pgUsername,
-    host: pgHost,
-    database: pgDatabase,
-    password: pgPassword,
-    port: pgPort
-});
+const sequelize = new Sequelize(
+    pgDatabase,
+    pgUsername,
+    pgPassword,
+    {
+        dialect: 'postgres',
+        host: pgHost,
+        port: pgPort
+    }
+);
 
-export const db = drizzle(postgresConfig);
+const models = {
+    Todo: TodoModel(sequelize)
+};
+
+const { Todo } = models;
+
+// association
+
+
+export {
+    sequelize,
+    Todo
+};
