@@ -1,0 +1,36 @@
+{
+  "name": "nextjs-ssr-nodejs-backend",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "build_old": "webpack",
+    "build": "npx tsc",
+    "dev": "nodemon --exec ts-node src/index.ts",
+    "start": "node dist/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shahul01/nextjs-ssr-nodejs-backend.git"
+  },
+  "keywords": [
+    "nodejs",
+    "typescript"
+  ],
+  "author": "shahul01",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shahul01/nextjs-ssr-nodejs-backend/issues"
+  },
+  "homepage": "https://github.com/shahul01/nextjs-ssr-nodejs-backend#readme",
+  "devDependencies": {
+    "@types/node": "^20.14.2",
+    "nodemon": "^3.0.2",
+    "ts-loader": "^9.5.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4"
+  }
+}
