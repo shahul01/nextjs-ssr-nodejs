@@ -13,7 +13,6 @@ const getTodos = async (req: Request, res: Response) => {
         const todos = await Todo.findAll(
             // { where: { userId: decodedUserId } }
         );
-        console.log(`todos: `, todos);
 
         res.status(200).json({ todos });
 
