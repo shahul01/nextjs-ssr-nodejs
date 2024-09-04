@@ -1,15 +1,16 @@
-# Nextjs - SSR - Nodejs
-## Todo app
-### created by shahul01
+# Nextjs - SSR - Nodejs Todo app
+## created by shahul01
 
-<hr >
+<br >
 
-### Screenshots
-#### Home
+## Screenshots
+### Home
 
 
-<hr >
+<br ><hr >
 
-### Tech stacks
-NextJS - w/ SSR, React, Server components, React Query
-NodeJS - w/ Express, postgres, bcrypt
+## Tech stacks
+### NextJS - w/ SSR, React, Server components, React Query
+### NodeJS - w/ Express, postgres, bcrypt
+
+<br ><hr >
