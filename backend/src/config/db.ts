@@ -1,5 +1,5 @@
 import { Pool } from 'pg';
-import { drizzle } from 'drizzle-orm';
+import { drizzle } from 'drizzle-orm/node-postgres';
 import { pgDatabase, pgHost, pgPassword, pgPort, pgUsername } from '../constants';
 
 const postgresConfig = new Pool({
