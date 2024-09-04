@@ -4,8 +4,10 @@
 
 import dotenv from 'dotenv';
 import express from 'express';
+import cors from 'cors';
 import { initRoutes } from './routes';
 import { dbSequelize } from './config/db';
+import { urlFrontend } from './constants';
 
 
 dotenv.config();
@@ -13,7 +15,7 @@ dotenv.config();
 const port = Number(process.env.PORT) || 8010;
 const app = express();
 
-// app.use(cors);
+app.use(cors({ credentials: true, origin: urlFrontend }));
 app.use(express.json());
 
 initRoutes(app);

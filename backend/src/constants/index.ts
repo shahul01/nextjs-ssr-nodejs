@@ -1,6 +1,6 @@
 
 
-export const urlFrontend = process.env.URL_FRONTEND || 'http://localhost:3010';
+export const urlFrontend = process.env.URL_FRONTEND || 'http://localhost:3000';
 
 export const pgUsername = process.env.POSTGRES_USERNAME || 'postgres';
 export const pgHost = process.env.POSTGRES_HOST || 'localhost';
