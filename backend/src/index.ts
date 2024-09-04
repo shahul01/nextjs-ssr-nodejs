@@ -19,7 +19,7 @@ app.use(express.json());
 initRoutes(app);
 
 
-dbSequelize.sync({ force: true }).then(() => {
+dbSequelize.sync({ alter:true, force: false }).then(() => {
     app.listen(port, () => {
         console.log(`Server is listening on port ${port}`);
     });

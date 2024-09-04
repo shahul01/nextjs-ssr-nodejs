@@ -2,8 +2,6 @@ import { Request, Response } from "express";
 import { randomUUID } from 'crypto';
 import { Todo } from '../config/db';
 
-const todos = [ {id: '1', title: 'hello'}, {id: '2', title: 'there'} ];
-
 type Todo = {
     id: string;
     title: string;
@@ -11,6 +9,11 @@ type Todo = {
 
 const getTodos = async (req: Request, res: Response) => {
     try {
+
+        const todos = await Todo.findAll(
+            // { where: { userId: decodedUserId } }
+        );
+        console.log(`todos: `, todos);
 
         res.status(200).json({ todos });
 
