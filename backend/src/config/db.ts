@@ -2,7 +2,7 @@ import { Sequelize } from 'sequelize';
 import TodoModel from '../models/todo.model';
 import { pgDatabase, pgHost, pgPassword, pgPort, pgUsername } from '../constants';
 
-const sequelize = new Sequelize(
+const dbSequelize = new Sequelize(
     pgDatabase,
     pgUsername,
     pgPassword,
@@ -14,7 +14,7 @@ const sequelize = new Sequelize(
 );
 
 const models = {
-    Todo: TodoModel(sequelize)
+    Todo: TodoModel(dbSequelize)
 };
 
 const { Todo } = models;
@@ -23,6 +23,6 @@ const { Todo } = models;
 
 
 export {
-    sequelize,
+    dbSequelize,
     Todo
 };

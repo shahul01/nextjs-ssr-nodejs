@@ -1,12 +1,12 @@
 import { DataTypes, Sequelize } from 'sequelize';
 
-const Todo = (sequelize: Sequelize) => {
-    const TodoDefinition = sequelize.define(
+const Todo = (dbSequelize: Sequelize) => {
+    const TodoDefinition = dbSequelize.define(
         'Todo',
         {
             id: {
-                type: DataTypes.UUIDV4,
-                defaultValue: DataTypes.UUIDV4,
+                type: DataTypes.UUID,
+                defaultValue: DataTypes.UUID,
                 primaryKey: true
             },
             title: {

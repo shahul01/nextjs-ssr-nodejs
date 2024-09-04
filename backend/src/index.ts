@@ -5,6 +5,7 @@
 import dotenv from 'dotenv';
 import express from 'express';
 import { initRoutes } from './routes';
+import { dbSequelize } from './config/db';
 
 
 dotenv.config();
@@ -17,7 +18,9 @@ app.use(express.json());
 
 initRoutes(app);
 
-app.listen(port, () => {
-    console.log(`Server is listening on port ${port}`);
-})
 
+dbSequelize.sync({ force: true }).then(() => {
+    app.listen(port, () => {
+        console.log(`Server is listening on port ${port}`);
+    });
+});
