@@ -5,4 +5,6 @@ const router = Router();
 
 router.get('/', TodoController.getTodos);
 
+router.post('/', TodoController.createTodo);
+
 export default router;
