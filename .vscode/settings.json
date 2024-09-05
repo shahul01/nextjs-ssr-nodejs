@@ -1,4 +1,8 @@
 {
   "workbench.colorTheme": "Monokai Dimmed",
-  "editor.indentSize": "2"
+  "editor.indentSize": "2",
+  "cSpell.words": [
+    "RQCP",
+    "tanstack"
+  ]
 }

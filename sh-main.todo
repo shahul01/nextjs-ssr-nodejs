@@ -44,9 +44,12 @@ Total:
 
 
     # docs & reference:
-        ☐ myshop-fullstack
-        ☐ https://chatgpt.com/c/733c9d7d-4fe6-4183-ad26-66edbd006e30
-        ☐ https://orm.drizzle.team/docs/get-started-postgresql#postgresjs
+      ☐ react query + ssr -
+        - https://tanstack.com/query/latest/docs/framework/react/guides/advanced-ssr
+        - https://chatgpt.com/c/a9ea431c-1870-48ec-a62d-25ffded14508
+      ☐ express + orm
+        - myshop-fullstack
+        - https://chatgpt.com/c/733c9d7d-4fe6-4183-ad26-66edbd006e30
 
 
 

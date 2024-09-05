@@ -1,64 +1,26 @@
-'use client';
-import { useEffect, useState } from "react";
-import { backendUrl } from "../utils/constants";
-import { createTodoAction } from "./actions";
-
+import { dehydrate, HydrationBoundary, QueryClient } from "@tanstack/react-query";
+import { Home } from "../components/pages/Home";
+// import { backendUrl } from "../utils/constants";
 
 async function getTodos() {
-  const todos = await fetch(`${backendUrl}/todos`);
+  const todos = await fetch(`http://localhost:8010/todos`);
   const resTodos = await todos.json();
   console.log(`resTodos: `, resTodos);
   return resTodos;
 };
 
-type Todo= {
-  id: string;
-  title: string;
-};
+export default async function HomePage() {
+  const queryClient = new QueryClient();
 
-export default function Home() {
-  const [ todos, setTodos ] = useState<Todo[]>([]);
-
-  async function init() {
-    const { todos: newTodos } = await getTodos();
-    if (!newTodos) return;
-    setTodos(newTodos);
-  };
-
-  useEffect(() => {
-    init();
-  },[]);
-
+  await queryClient.prefetchQuery({
+    queryKey: ['todos'],
+    queryFn: getTodos,
+  });
 
   return (
-  <main className="app p-4">
-    <form action={createTodoAction.bind(null)}>
-      <input
-        type="text"
-        name='title'
-        placeholder="title"
-        className="text-black border border-gray-400 mr-2 outline-none"
-      />
-      <button className="text-white bg-blue-500 hover:bg-blue-700 font-bold px-2 rounded-sm"
-      >
-        Submit
-      </button>
+    <HydrationBoundary state={dehydrate(queryClient)}>
+      <Home />
+    </HydrationBoundary>
+  )
 
-    </form>
-
-    <br /><hr />
-    <h2>Todos</h2>
-
-    <div className="todo-lists">
-      {
-        todos?.map((todo: Todo) => (
-          <div key={todo.id}>
-            {todo.title}
-          </div>
-        ))
-      }
-    </div>
-
-  </main>
-  );
-}
+};
