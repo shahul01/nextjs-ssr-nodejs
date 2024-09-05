@@ -25,14 +25,15 @@ export function Home() {
   if (isLoading) return (<div>Loading...</div>);
   // if (todos)
   return (
-    <main className="app p-4">
-
-      <TodoForm />
-      <br /><hr />
+    <main className="home
+      flex flex-col justify-center items-center
+      gap-4
+      h-[90dvh]
+      ">
       <h2>Todos</h2>
 
+      <TodoForm />
       <TodoList todos={todos} />
-
 
     </main>
   );

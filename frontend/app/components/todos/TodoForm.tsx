@@ -32,12 +32,12 @@ export default function TodoForm() {
 
 
   return (
-    <form ref={formRef} action={formAction}>
+    <form ref={formRef} action={formAction} className="form">
       <Input
         type='text'
         name='title'
-        placeholder="title"
-        className="mt-3 rounded-lg border-none py-1.5 px-3
+        placeholder="Title..."
+        className="mr-4 rounded-lg border-none py-2 px-3
         text-sm text-white bg-white/5
         focus:outline-none focus:outline-2 focus:outline-offset-2 focus:outline-white/25"
       />
