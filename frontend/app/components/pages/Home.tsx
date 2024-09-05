@@ -1,6 +1,8 @@
 'use client';
 
+import { useFormState } from "react-dom";
 import { useQuery } from "@tanstack/react-query";
+import { useRef } from "react";
 import { createTodoAction } from "../../(pages)/actions";
 import { backendUrl } from "@/app/utils/constants";
 
@@ -26,17 +28,23 @@ export function Home() {
     queryKey: ['todos'],
     queryFn: getTodos
   });
-
+  const formRef = useRef<HTMLFormElement>(null);
   const todos = data?.todos || [];
 
-  if (isLoading) return (<div>Loading...</div>);
+  const [ formState, formAction ] = useFormState(createTodoAction, {
+    message: ''
+  });
 
+  if (formState.message === 'success') formRef.current?.reset();
+
+
+  if (isLoading) return (<div>Loading...</div>);
   // if (todos)
   return (
     <main className="app p-4">
       {/* { JSON.stringify(typeof(todos)) } */}
 
-      <form action={createTodoAction.bind(null)}>
+      <form ref={formRef} action={formAction}>
         <input
           type="text"
           name='title'

@@ -18,12 +18,19 @@ async function postTodo(todoPayload: Record<string, any>) {
 
 };
 
-export async function createTodoAction(formData: FormData) {
+export async function createTodoAction(state:{message: string}, formData: FormData)
+: Promise<{message: string}>
+{
+  console.log(`state: `, state);
   const titleForm = formData.get('title') as string;
   const todoPayload = { title: titleForm };
 
   await postTodo(todoPayload);
 
   revalidatePath('/');
+
+  return {
+    message: 'success'
+  };
 
 };
