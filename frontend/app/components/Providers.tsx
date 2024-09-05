@@ -14,7 +14,7 @@ type ProvidersProps = {
 };
 
 function makeQueryClient() {
-return new QueryClient({
+  return new QueryClient({
     defaultOptions: {
       queries: {
         staleTime: 60 * 1_000
