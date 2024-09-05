@@ -22,6 +22,7 @@ export async function createTodoAction(state:{message: string}, formData: FormDa
 : Promise<{message: string}>
 {
   console.log(`state: `, state);
+  await new Promise( res => setTimeout( res, 200 ));
   const titleForm = formData.get('title') as string;
   const todoPayload = { title: titleForm };
 

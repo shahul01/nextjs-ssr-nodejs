@@ -1,11 +1,8 @@
 import { dehydrate, HydrationBoundary, QueryClient } from "@tanstack/react-query";
 import { Home } from "../components/pages/Home";
 import { backendUrl } from "../utils/constants";
+import { Todo } from "../types/todos";
 
-type Todo= {
-  id: string;
-  title: string;
-};
 
 async function getTodos(): Promise<Todo[]> {
   const todos = await fetch(`${backendUrl}/todos`);

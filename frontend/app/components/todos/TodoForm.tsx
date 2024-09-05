@@ -1,6 +1,20 @@
 import { useRef } from "react";
-import { useFormState } from "react-dom";
+import { useFormState, useFormStatus } from "react-dom";
 import { createTodoAction } from "@/app/(pages)/actions";
+
+
+
+function SubmitButton() {
+  const status = useFormStatus();
+  return (
+    <button
+      className="text-white bg-blue-500 hover:bg-blue-700 font-bold px-2 rounded-sm"
+      disabled={status.pending}
+    >
+      { status.pending ? 'Submitting...' : 'Submit' }
+    </button>
+  );
+};
 
 
 export default function TodoForm() {
@@ -21,10 +35,7 @@ export default function TodoForm() {
         placeholder="title"
         className="text-black border border-gray-400 mr-2 outline-none"
       />
-      <button className="text-white bg-blue-500 hover:bg-blue-700 font-bold px-2 rounded-sm">
-        Submit
-      </button>
-
+      <SubmitButton />
     </form>
   )
 };
