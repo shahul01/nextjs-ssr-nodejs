@@ -3,13 +3,19 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
+  --foreground-hsl: 0, 0%, 96%;
+  --background-hsl: 0, 0%, 4%;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
-  --foreground-rgb: 255, 255, 255;
+    --background-hsl: 0, 0%, 4%;
   }
+} */
+
+body {
+  color: hsl( var(--foreground-hsl) );
+  background-color: hsl( var(--background-hsl) );
 }
 
 @layer utilities {
